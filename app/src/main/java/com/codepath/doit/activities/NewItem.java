@@ -226,9 +226,10 @@ public class NewItem extends AppCompatActivity implements View.OnClickListener,
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 201 && resultCode == RESULT_OK) {
             ArrayList<String> thingsYouSaid = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            if(!TextUtils.isEmpty(etNewTask.getText().toString().trim())) {
+            if (!TextUtils.isEmpty(etNewTask.getText().toString().trim())) {
                 etNewTask.append(" " + thingsYouSaid.get(0));
             } else {
                 etNewTask.append(thingsYouSaid.get(0));

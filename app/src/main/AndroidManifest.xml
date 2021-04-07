@@ -13,13 +13,18 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <meta-data
             android:name="AA_DB_NAME"
-            android:value="DoIt.db" />
+            android:value="DoIt2.db" />
         <meta-data
             android:name="AA_DB_VERSION"
             android:value="1" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.codepath.doit.models.Item" />
+            android:value="com.codepath.doit.models.Item, com.codepath.doit.models.Priority, com.codepath.doit.models.Category" />
+
+        <provider
+            android:name="com.activeandroid.content.ContentProvider"
+            android:authorities="${applicationId}"
+            android:exported="false" />
 
         <activity android:name=".activities.MainActivity">
             <intent-filter>
@@ -34,6 +39,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable"/>
         </activity>
+
         <activity android:name=".activities.NewItem" />
 
         <receiver android:name="values.WidgetProvider">

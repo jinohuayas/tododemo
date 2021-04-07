@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.MenuItemCompat;
 
+import com.codepath.doit.models.Category;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.text.Editable;
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
         Log.w("MyApp", "onCreate: " + lang);
 
+
         super.onCreate(savedInstanceState);
         mContext = this;
 
@@ -101,6 +103,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         spkBtn = (ImageView) findViewById(R.id.spkBtn);
         editText = (EditText) findViewById(R.id.etAddText);
+
+        Category category = new Category();
+        category.name = "categoria 1";
+        category.save();
+        Log.w("MyApp", "onCreate22: " + lang);
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -360,6 +367,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             e.printStackTrace();
             Toast.makeText(this, "Error initializing speech to text engine.", Toast.LENGTH_LONG).show();
         }
+
     }
 
     public void onTickClick(View view) {
